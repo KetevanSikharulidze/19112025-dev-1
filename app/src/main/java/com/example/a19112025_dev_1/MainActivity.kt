@@ -2,7 +2,6 @@ package com.example.a19112025_dev_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.a19112025_dev_1.fragments.MainFragment
 import com.example.a19112025_dev_1.fragments.RegisterFragment
 
 class MainActivity : AppCompatActivity() {

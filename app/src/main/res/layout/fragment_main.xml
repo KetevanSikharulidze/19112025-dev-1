@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".fragments.MainFragment">
+    tools:context=".fragments.LoginFragment">
 
     <EditText
         android:id="@+id/loginEmailET"
@@ -27,6 +27,25 @@
         android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_marginVertical="10dp"
         android:text="login" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginRegisterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Not Registered yet? Sign Up now!" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginForgotPasswordBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:text="Forgot password?" />
+
 
 </LinearLayout>

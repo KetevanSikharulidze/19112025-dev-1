@@ -1,6 +1,7 @@
 package com.example.a19112025_dev_1.fragments
 
 import android.os.Bundle
+import android.provider.ContactsContract.Profile
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +10,8 @@ import android.widget.Toast
 import com.example.a19112025_dev_1.R
 import com.example.a19112025_dev_1.databinding.FragmentMainBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
-class MainFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     lateinit var binding: FragmentMainBinding
 
@@ -40,16 +39,28 @@ class MainFragment : Fragment() {
             auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { result ->
                 if (result.isSuccessful){
                     Toast.makeText(context, "user has successfully logged in", Toast.LENGTH_SHORT).show()
+                    replaceFragment(ProfileFragment())
                 } else {
-                    Toast.makeText(context, "${result.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "${result.exception!!.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
+        loginRegisterBtn.setOnClickListener {
+            replaceFragment(RegisterFragment())
+        }
+
+        loginForgotPasswordBtn.setOnClickListener {
+            replaceFragment(ForgotPasswordFragment())
+        }
+    }
+
+    private fun replaceFragment(f:Fragment){
+        parentFragmentManager.beginTransaction().replace(R.id.main,f).commit()
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = MainFragment()
+        fun newInstance() = LoginFragment()
     }
 }

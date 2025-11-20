@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.a19112025_dev_1.R
-import com.example.a19112025_dev_1.databinding.FragmentMainBinding
 import com.example.a19112025_dev_1.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -28,17 +27,11 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-    fun goto(f:Fragment){
-        parentFragmentManager.beginTransaction().replace(R.id.main,f).commit()
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
 
         super.onViewCreated(view, savedInstanceState)
         registerLoginButton.setOnClickListener {
-
-            goto(MainFragment())
+            replaceFragment(LoginFragment())
         }
         registerButton.setOnClickListener {
             val email = registerEmailET.text.toString()
@@ -49,13 +42,17 @@ class RegisterFragment : Fragment() {
 
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                 if(it.isSuccessful){
-                    goto(MainFragment())
+                    replaceFragment(LoginFragment())
                 }else{
-                    Toast.makeText(context, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "${it.exception!!.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
+    }
+
+    private fun replaceFragment(f:Fragment){
+        parentFragmentManager.beginTransaction().replace(R.id.main,f).commit()
     }
 
 }

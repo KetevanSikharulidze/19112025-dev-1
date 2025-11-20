@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.19112025dev1" parent="Base.Theme.19112025dev1" />
+
+    <style name="ShapeAppearanceOverlay." parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

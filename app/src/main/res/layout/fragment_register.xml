@@ -3,39 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BFAFAF"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".fragments.RegisterFragment"
+    tools:context=".fragments.RegisterFragment">
 
-    >
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="email"
-        android:ems="10"
         android:id="@+id/registerEmailET"
-        android:inputType="textEmailAddress"
-        />
-    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="password"
         android:ems="10"
+        android:hint="email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
         android:id="@+id/registerPasswordET"
-        android:inputType="numberPassword"
-        />
-    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="numberPassword" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerButton"
-        />
-    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In"
+        android:textAllCaps="false"
+        android:layout_marginVertical="10dp"
+        android:text="Register" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerLoginButton"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Already registered? Log In" />
 
 </LinearLayout>
